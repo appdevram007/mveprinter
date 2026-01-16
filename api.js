@@ -79,8 +79,11 @@ export const orderApi = {
   getOrdersByStatus: (status) => get(`/orders?status=${status}`),
   getTodaysOrders: () => get('/orders/today'),
   getOrderById: (id) => get(`/orders/${id}`),
-  updateOrderStatus: (id, status) => patch(`/orders/${id}`, { status }),
-  markAsPrinted: (id) => post(`/orders/${id}/print`, {}),
+updateOrderStatus: ({ orderNumber, receiptPrinted }) =>
+  patch('/mobileapi/orders/print-status', {
+    orderNumber,
+    receiptPrinted
+  }),  markAsPrinted: (id) => post(`/orders/${id}/print`, {}),
   getPrinterJobs: (deviceId) => get(`/printer/jobs?deviceId=${deviceId}`),
   registerPrinter: (data) => post('/printer/register', data),
   sendPrintAck: (data) => post('/printer/acknowledge', data),
