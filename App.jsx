@@ -322,18 +322,9 @@ enqueuePrintJobpending(order)
 
   return `+${digits}`;
 }
-const fetchPrintJobs= async () => {
- try {
-        await SunmiPrinter.prepare();
-      const result = await SunmiPrinter.scan()
-console.log(result,"resultresult")
-    } catch (error) {
-      console.warn(error)
-      // toast.show(`onPressScan is failed. ${error}`)
-    }
-  }
+
   // ================== FETCH PRINT JOBS (Using Sample Data) ==================
-const fetchPrintJobsw = async () => {
+const fetchPrintJobs = async () => {
   try {
     setIsLoading(true);
 
